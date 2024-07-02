@@ -18,18 +18,44 @@ function holdStatus(arr){
   }
 }
 
+let nothingWrong = function(input) {
+  if (checkFuel(input) === 'green') {
+      return input - 100001;
+  } else if (checkFuel(input) === 'yellow') {
+      return input - 50001;
+  } else {
+      return input;
+  }
+}
+
+
 let fuelLevel = 200000;
+console.log(nothingWrong(fuelLevel));
+
 let cargoHold = ['meal kits', 'space suits', 'first-aid kit', 'satellite', 'gold', 'water', 'AE-35 unit'];
 
-console.log("Fuel level: " + checkFuel(fuelLevel));
-console.log("Hold status: " + holdStatus(cargoHold));
+
+
+console.log("Fuel level: " + (fuelLevel));
+console.log("Fuel color: " + checkFuel(fuelLevel));
+// console.log("Hold status: " + holdStatus(cargoHold));
+
+
 
 /* Steal some fuel from the shuttle:
  */
  
 //a). Define an anonymous function and set it equal to a variable with a normal, non-suspicious name. The function takes one parameter. This will be the fuel level on the shuttle.
 
-//b). You must siphon off fuel without alerting the TAs. Inside your function, you want to reduce the fuel level as much as possible WITHOUT changing the color returned by the checkFuel function.
+// let nothingWrong = function (input) {
+
+// }
+
+
+//b). You must siphon off fuel without alerting the TAs. Inside your function, you want to reduce the fuel level as much as 
+// possible WITHOUT changing the color returned by the checkFuel function.
+
+
 
 //c). Once you figure out how much fuel to pump out, return that value.
 
@@ -40,9 +66,27 @@ console.log("Hold status: " + holdStatus(cargoHold));
 
 //a). Define another anonymous function with an array as a parameter, and set it equal to another innocent variable.
 
-//b). You need to swipe two items from the cargo hold. Choose well. Stealing water ain’t gonna get us rich. Put the swag into a new array and return it from the function.
+let someInnocentArray = function(cargoHold) {
+  let goodies = [];
+  let worthlessItems = ["pencil", "banana"];
+  for (let i=0; i < cargoHold.length; i++)
+    if (cargoHold[i] === "gold" || cargoHold[i] === "AE-35 unit") {
+      goodies.push(cargoHold[i]);
+     if (goodies.length === 2) break;
+}
+  return goodies;
+}
 
-//c). The cargo hold has better security than the fuel tanks. It counts how many things are in storage. You need to replace what you steal with something worthless. The count MUST stay the same, or you’ll get caught and thrown into the LaunchCode brig.
+let theseGoodies = someInnocentArray(cargoHold);
+console.log(theseGoodies);
+
+//b). You need to swipe two items from the cargo hold. Choose well. Stealing water ain’t gonna get us rich. Put the swag into a new array 
+// and return it from the function.
+
+//c). The cargo hold has better security than the fuel tanks. It counts how many things are in storage. You need to replace what you steal with 
+// something worthless. The count MUST stay the same, or you’ll get caught and thrown into the LaunchCode brig.
+
+
 
 //d). Don’t get hasty, matey! Remember to test your function.
 
