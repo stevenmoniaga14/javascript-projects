@@ -1,7 +1,10 @@
 // Code your crewMass function here:
 
 
+
 // Code your fuelRequired function here:
+
+
 
 
 // The pre-selected crew is in the array at the end of this file.
@@ -51,4 +54,45 @@ let candidateA = {
  };
  
  let crew = [candidateB,candidateD,candidateF];
+
+ const crewMass = (crew) => {
+  let totalMass = 0;
+  let i = 0;
+  while (i < crew.length) {
+    totalMass += crew[i].mass;
+    if (crew[i].species === "dog" || crew[i].species === "cat") {
+        totalMass += 200;
+    } else {
+      totalMass += 100;
+    }
+    i++;
+  }
+  return Math.round(totalMass * 10) / 10;
+};
+
+let totalCrewMass = crewMass(crew)
+// console.log(totalCrewMass);
+
+const fuelRequired = (rocketWeight, crew) => {
+  let rocketMass = rocketWeight;
+  let totalRocketMass = rocketMass + crewMass(crew);
+
+  let extraFuel = 0;
+  let i = 0;
+  while (i < crew.length) {
+    if (crew[i].species === 'dog' || crew[i].species === 'cat') {
+      extraFuel += 200;
+    } else {
+      extraFuel += 100;
+    }
+    i++;
+  }
+
+  let fuel = totalRocketMass * 9.5 + extraFuel;
+
+  fuel = Math.ceil(fuel);
+  return fuel;
+}
+
+console.log(fuelRequired(75000, crew));
  
