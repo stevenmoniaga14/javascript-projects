@@ -1,4 +1,12 @@
 function whoWon(player1,player2){
+  // Condition to check if player picks any other answer.
+  // If validInputs does not match/include what's on the array, return invalid
+
+  const validInputs = ['rock', 'paper', 'scissors'];
+
+  if (!validInputs.includes(player1) || !validInputs.includes(player2)) {
+    return 'Invalid input';}
+
 
    if (player1 === player2){
      return 'TIE!';
@@ -12,9 +20,12 @@ function whoWon(player1,player2){
      return 'Player 2 wins!';
    }
    
-   if (player1 === 'scissors' && player2 === 'rock '){
+   if (player1 === 'scissors' && player2 === 'rock'){
      return 'Player 2 wins!';
+   } else {
+    return 'Player 1 wins!';
    }
- 
-   return 'Player 1 wins!';
+   
  }
+
+ module.exports = whoWon;
