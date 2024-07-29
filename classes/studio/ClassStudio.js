@@ -71,4 +71,4 @@ while (gladGator.status() !== "Accepted") {
 }
 
 console.log(`Gator needs ${testAdditionsAccepted} tests to reach ${gladGator.status()} accepted status.`);
-console.log(`Gator needs ${testAdditionsReserve} tests to reach ${gladGator.status()} accepted status.`);
+console.log(`Gator needs ${testAdditionsReserve} tests to reach ${gladGator.status()} reserve status.`);
